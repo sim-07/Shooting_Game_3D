@@ -32,6 +32,7 @@ scene.add(sphere);
 camera.position.set(0, 5, 10);
 camera.lookAt(sphere.position);
 
+
 // Funzione di animazione (loop di rendering)
 function animate() {
     requestAnimationFrame(animate);
