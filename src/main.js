@@ -1,9 +1,10 @@
-// Variabili di base per scena, camera, renderer e controlli
+import { PointerLockControls } from '/three/examples/jsm/controls/PointerLockControls.js';
+import { Room } from './components/rooms/room.js';
+
 let camera, scene, renderer, controls;
 let moveForward = false, moveBackward = false, moveLeft = false, moveRight = false;
 let velocity = new THREE.Vector3();
 let direction = new THREE.Vector3();
-const objects = [];
 
 init();
 animate();
@@ -22,9 +23,9 @@ function init() {
     document.body.appendChild(renderer.domElement);
 
     // Controlli in prima persona
-    controls = new THREE.PointerLockControls(camera, document.body);
+    controls = new PointerLockControls(camera, document.body);
 
-    // Evento per il click iniziale per sbloccare i controlli
+    // Click per iniziare il gioco
     document.getElementById('instructions').addEventListener('click', function () {
         controls.lock();
     });
@@ -39,18 +40,13 @@ function init() {
 
     scene.add(controls.getObject());
 
-    // Aggiungi un piano come terreno
-    const floorGeometry = new THREE.PlaneGeometry(200, 200);
-    const floorMaterial = new THREE.MeshBasicMaterial({ color: 0x808080 });
-    const floor = new THREE.Mesh(floorGeometry, floorMaterial);
-    floor.rotation.x = -Math.PI / 2;
-    scene.add(floor);
+    // Creare una stanza
+    const room = new Room(scene);
 
-    // Eventi per il movimento della tastiera
+    // Eventi per il movimento
     document.addEventListener('keydown', onKeyDown);
     document.addEventListener('keyup', onKeyUp);
 
-    // Gestisci il ridimensionamento della finestra
     window.addEventListener('resize', onWindowResize);
 }
 
