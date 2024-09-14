@@ -49,15 +49,16 @@ function App() {
 
     scene.add(controls.object);
 
-    // Aggiungere una luce direzionale
+    // Aggiungere una luce direzionale 
     const light = new THREE.DirectionalLight(0xffffff, 1);
     light.position.set(50, 50, 50);
     scene.add(light);
 
-    // Aggiungi Floor e Walls alla scena
+    // Aggiungi Floor e Walls alla scena 
     const floor = new Floor();
     scene.add(floor);
 
+    
     const walls = new Walls();
     scene.add(walls);
 
