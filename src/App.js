@@ -58,7 +58,6 @@ function App() {
     const floor = new Floor();
     scene.add(floor);
 
-    
     const walls = new Walls();
     scene.add(walls);
 
