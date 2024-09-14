@@ -63,7 +63,7 @@ function App() {
 
     const animate = () => {
       requestAnimationFrame(animate);
-      controls.update(); // Aggiornare i controlli ad ogni frame
+      controls.update();
       renderer.render(scene, camera);
     };
 
