@@ -58,7 +58,24 @@ function App() {
     const floor = new Floor();
     scene.add(floor);
 
-    
+    document.addEventListener('keydown', function (event) {
+      switch (event.keyCode) {
+        case 87: // W
+          camera.position.z -= 0.5;
+          break;
+        case 65: // A
+          camera.position.x -= 0.5;
+          break;
+        case 83: // S
+          camera.position.z += 0.5;
+          break;
+        case 68: // D
+          camera.position.x += 0.5;
+          break;
+      }
+    });
+
+
     const walls = new Walls();
     scene.add(walls);
 
