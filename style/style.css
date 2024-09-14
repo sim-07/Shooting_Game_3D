@@ -1,11 +1,13 @@
-body, html {
+#instructions {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    z-index: 1;
+  }
+  
+  body {
     margin: 0;
-    padding: 0;
     overflow: hidden;
-    height: 100%;
-    font-family: Arial, sans-serif;
-}
-
-canvas {
-    display: block;
-}
+  }
+  
